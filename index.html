@@ -6,11 +6,7 @@
     <title>FOWLPLAY - NFT Collection</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --cyan: #7FDBFF;
@@ -32,7 +28,7 @@
             overflow-x: hidden;
         }
 
-        /* Landing Page */
+        /* ── LANDING PAGE ── */
         #landing-page {
             display: flex;
             flex-direction: column;
@@ -46,55 +42,50 @@
         #landing-page::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 220, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(255, 133, 27, 0.1) 0%, transparent 50%);
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(255,220,0,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255,133,27,0.1) 0%, transparent 50%);
             animation: float 20s ease-in-out infinite;
             z-index: 0;
             pointer-events: none;
         }
 
         @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(30px, 30px) rotate(5deg); }
+            0%, 100% { transform: translate(0,0) rotate(0deg); }
+            50%       { transform: translate(30px,30px) rotate(5deg); }
         }
 
         .character-container {
             position: relative;
             z-index: 2;
             animation: bounceIn 1s ease-out;
-            pointer-events: none;
         }
 
         @keyframes bounceIn {
-            0% { transform: scale(0) rotate(-180deg); opacity: 0; }
-            50% { transform: scale(1.1) rotate(10deg); }
+            0%   { transform: scale(0) rotate(-180deg); opacity: 0; }
+            50%  { transform: scale(1.1) rotate(10deg); }
             100% { transform: scale(1) rotate(0deg); opacity: 1; }
         }
 
         .character-image {
             width: 300px;
             height: 300px;
-            filter: drop-shadow(0 20px 40px rgba(0, 31, 63, 0.3));
+            filter: drop-shadow(0 20px 40px rgba(0,31,63,0.3));
             animation: wiggle 3s ease-in-out infinite;
         }
 
         @keyframes wiggle {
             0%, 100% { transform: rotate(-3deg); }
-            50% { transform: rotate(3deg); }
+            50%       { transform: rotate(3deg); }
         }
 
         .halo-glow {
             position: absolute;
-            top: -20px;
-            left: 50%;
+            top: -20px; left: 50%;
             transform: translateX(-50%);
-            width: 150px;
-            height: 150px;
+            width: 150px; height: 150px;
             background: radial-gradient(circle, var(--yellow) 0%, transparent 70%);
             opacity: 0.5;
             animation: pulse 2s ease-in-out infinite;
@@ -103,7 +94,7 @@
 
         @keyframes pulse {
             0%, 100% { opacity: 0.3; transform: translateX(-50%) scale(0.9); }
-            50% { opacity: 0.6; transform: translateX(-50%) scale(1.1); }
+            50%       { opacity: 0.6; transform: translateX(-50%) scale(1.1); }
         }
 
         .enter-button {
@@ -118,57 +109,37 @@
             border-radius: 50px;
             cursor: pointer;
             position: relative;
-            z-index: 10;
+            z-index: 2;
             transition: all 0.3s ease;
-            box-shadow: 
-                0 10px 30px rgba(255, 133, 27, 0.4),
-                inset 0 -4px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(255,133,27,0.4), inset 0 -4px 0 rgba(0,0,0,0.2);
             animation: glow 2s ease-in-out infinite;
-            pointer-events: all;
         }
 
         @keyframes glow {
-            0%, 100% { box-shadow: 
-                0 10px 30px rgba(255, 133, 27, 0.4),
-                inset 0 -4px 0 rgba(0, 0, 0, 0.2),
-                0 0 20px rgba(255, 220, 0, 0.3); 
-            }
-            50% { box-shadow: 
-                0 10px 30px rgba(255, 133, 27, 0.6),
-                inset 0 -4px 0 rgba(0, 0, 0, 0.2),
-                0 0 40px rgba(255, 220, 0, 0.6); 
-            }
+            0%, 100% { box-shadow: 0 10px 30px rgba(255,133,27,0.4), inset 0 -4px 0 rgba(0,0,0,0.2), 0 0 20px rgba(255,220,0,0.3); }
+            50%       { box-shadow: 0 10px 30px rgba(255,133,27,0.6), inset 0 -4px 0 rgba(0,0,0,0.2), 0 0 40px rgba(255,220,0,0.6); }
         }
 
         .enter-button:hover {
             transform: scale(1.1) rotate(-2deg);
-            box-shadow: 
-                0 15px 40px rgba(255, 133, 27, 0.6),
-                inset 0 -4px 0 rgba(0, 0, 0, 0.2),
-                0 0 50px rgba(255, 220, 0, 0.8);
+            box-shadow: 0 15px 40px rgba(255,133,27,0.6), inset 0 -4px 0 rgba(0,0,0,0.2), 0 0 50px rgba(255,220,0,0.8);
         }
 
-        .enter-button:active {
-            transform: scale(1.05) rotate(0deg);
-        }
+        .enter-button:active { transform: scale(1.05) rotate(0deg); }
 
-        /* Loading Screen */
+        /* ── LOADING SCREEN ── */
         #loading-screen {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: linear-gradient(135deg, var(--navy) 0%, #003366 100%);
             z-index: 9999;
             justify-content: center;
             align-items: center;
         }
 
-        #loading-screen.active {
-            display: flex;
-        }
+        #loading-screen.active { display: flex; }
 
         .crt-effect {
             position: relative;
@@ -178,9 +149,7 @@
             background: linear-gradient(to bottom, #e0e0e0 0%, #f5f5f5 50%, #e0e0e0 100%);
             border-radius: 20px;
             padding: 40px;
-            box-shadow: 
-                0 0 0 15px rgba(50, 50, 50, 0.8),
-                0 30px 60px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 0 15px rgba(50,50,50,0.8), 0 30px 60px rgba(0,0,0,0.5);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -190,23 +159,21 @@
         .crt-effect::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: repeating-linear-gradient(
                 0deg,
-                rgba(0, 0, 0, 0.05) 0px,
+                rgba(0,0,0,0.05) 0px,
                 transparent 1px,
                 transparent 2px,
-                rgba(0, 0, 0, 0.05) 3px
+                rgba(0,0,0,0.05) 3px
             );
             pointer-events: none;
             animation: scanline 8s linear infinite;
         }
 
         @keyframes scanline {
-            0% { transform: translateY(0); }
+            0%   { transform: translateY(0); }
             100% { transform: translateY(100%); }
         }
 
@@ -217,19 +184,19 @@
             text-transform: uppercase;
             letter-spacing: 6px;
             animation: blink 1.5s steps(2, start) infinite;
-            text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
         }
 
         @keyframes blink {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+            50%       { opacity: 0.3; }
         }
 
-        /* Main Content */
+        /* ── MAIN CONTENT (GALLERY) ── */
         #main-content {
             display: none;
             min-height: 100vh;
-            padding: 40px 20px;
+            padding-bottom: 60px;
         }
 
         #main-content.active {
@@ -239,287 +206,342 @@
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .header {
+        /* ── GALLERY HEADER ── */
+        .gallery-header {
             text-align: center;
-            margin-bottom: 50px;
-            animation: slideDown 0.8s ease-out;
-        }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
+            padding: 50px 20px 30px;
         }
 
         .logo {
             font-family: 'Fredoka One', cursive;
             font-size: 4rem;
             color: var(--white);
-            text-shadow: 
+            text-shadow:
                 4px 4px 0 var(--orange),
                 8px 8px 0 var(--yellow),
-                12px 12px 20px rgba(0, 0, 0, 0.3);
-            margin-bottom: 10px;
+                12px 12px 20px rgba(0,0,0,0.3);
+            margin-bottom: 8px;
             letter-spacing: 4px;
         }
 
         .tagline {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--yellow);
             font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 6px;
         }
 
-        /* Wallet Checker Section */
-        .section {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 30px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 
-                0 20px 60px rgba(0, 31, 63, 0.2),
-                0 0 0 4px var(--yellow);
-            animation: slideUp 0.8s ease-out backwards;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 220, 0, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .section:hover::before {
-            left: 100%;
-        }
-
-        .section:nth-child(1) { animation-delay: 0.2s; }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section-title {
-            font-family: 'Fredoka One', cursive;
-            font-size: 2rem;
-            color: var(--navy);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .section-icon {
-            font-size: 2.5rem;
-        }
-
-        .section-subtitle {
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 28px;
+        .collection-stats {
+            font-size: 0.95rem;
+            color: var(--white);
             font-weight: 600;
+            opacity: 0.85;
         }
 
-        .input-group {
-            margin-bottom: 20px;
+        /* ── MINT BUTTON ── */
+        .mint-banner {
+            display: flex;
+            justify-content: center;
+            padding: 10px 20px 30px;
         }
 
-        .label {
-            display: block;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 10px;
-        }
-
-        .input {
-            width: 100%;
-            padding: 15px 20px;
-            font-size: 1rem;
-            font-family: 'Quicksand', sans-serif;
-            border: 3px solid var(--cyan);
-            border-radius: 15px;
+        .mint-btn {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+            letter-spacing: 4px;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--orange) 0%, var(--red) 100%);
+            border: 3px solid var(--yellow);
+            border-radius: 50px;
+            padding: 14px 60px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
             transition: all 0.3s ease;
-            background: white;
+            box-shadow: 0 10px 30px rgba(255,133,27,0.4), inset 0 -4px 0 rgba(0,0,0,0.2);
+            animation: glow 2s ease-in-out infinite;
         }
 
-        .input:focus {
+        .mint-btn:hover { transform: scale(1.07) rotate(-1deg); }
+
+        /* ── CONTROLS ── */
+        .controls {
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 220px;
+            max-width: 360px;
+            padding: 12px 20px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 3px solid var(--yellow);
+            border-radius: 30px;
+            background: rgba(255,255,255,0.95);
+            color: var(--navy);
             outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-box:focus {
             border-color: var(--orange);
-            box-shadow: 0 0 0 4px rgba(255, 133, 27, 0.2);
+            box-shadow: 0 0 0 4px rgba(255,133,27,0.2);
             transform: scale(1.02);
         }
 
-        .button {
-            padding: 15px 40px;
-            font-family: 'Fredoka One', cursive;
-            font-size: 1.2rem;
-            color: white;
-            background: linear-gradient(135deg, var(--orange) 0%, var(--red) 100%);
+        .filter-select {
+            padding: 12px 20px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
             border: 3px solid var(--yellow);
-            border-radius: 25px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.95);
+            color: var(--navy);
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .filter-select:focus { border-color: var(--orange); }
+
+        .results-count {
+            font-family: 'Fredoka One', cursive;
+            color: var(--white);
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+        }
+
+        /* ── SECTION LABEL ── */
+        .section-label {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.6rem;
+            color: var(--white);
+            text-align: center;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+            text-shadow: 2px 2px 0 var(--orange), 4px 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* ── LEGENDARIES ── */
+        .legendaries-section {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+        }
+
+        .legendaries-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .legendary-card {
+            background: rgba(255,255,255,0.97);
+            border-radius: 20px;
+            border: 4px solid var(--yellow);
+            box-shadow: 0 15px 40px rgba(0,31,63,0.25), 0 0 30px rgba(255,220,0,0.3);
+            overflow: hidden;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(255, 133, 27, 0.3);
-            text-transform: uppercase;
+            width: 220px;
+            position: relative;
+        }
+
+        .legendary-card::before {
+            content: '⭐ LEGENDARY';
+            position: absolute;
+            top: 10px; left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--orange), var(--red));
+            color: white;
+            font-family: 'Fredoka One', cursive;
+            font-size: 0.7rem;
             letter-spacing: 2px;
-            width: 100%;
-        }
-
-        .button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 12px 30px rgba(255, 133, 27, 0.5);
-        }
-
-        .button:active {
-            transform: translateY(-1px) scale(1.02);
-        }
-
-        .button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* Result Box */
-        .result-box {
-            display: none;
-            margin-top: 25px;
-            padding: 25px 30px;
+            padding: 4px 12px;
             border-radius: 20px;
-            text-align: center;
-            animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 2px solid var(--yellow);
+            z-index: 2;
+            white-space: nowrap;
+        }
+
+        .legendary-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(0,31,63,0.3), 0 0 50px rgba(255,220,0,0.5);
+        }
+
+        .legendary-card img { width: 100%; display: block; padding-top: 10px; }
+        .legendary-card .card-info { padding: 12px 14px 14px; }
+
+        /* ── MAIN GALLERY ── */
+        .gallery-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 16px 60px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 14px;
+        }
+
+        .nft-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 16px;
+            border: 3px solid transparent;
+            box-shadow: 0 8px 20px rgba(0,31,63,0.15);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .nft-card:hover {
+            transform: translateY(-5px) scale(1.03);
+            border-color: var(--yellow);
+            box-shadow: 0 15px 35px rgba(0,31,63,0.25), 0 0 20px rgba(255,220,0,0.3);
+        }
+
+        .nft-card img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            display: block;
+            background: #eee;
+        }
+
+        .card-info { padding: 8px 10px 10px; }
+
+        .card-name {
+            font-family: 'Fredoka One', cursive;
+            font-size: 0.85rem;
+            color: var(--navy);
+            letter-spacing: 1px;
+        }
+
+        .card-id { font-size: 0.75rem; color: #888; font-weight: 600; }
+
+        /* ── LOAD MORE ── */
+        .load-more-wrap { text-align: center; margin: 30px 0 20px; }
+
+        .load-more-btn {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--orange) 0%, var(--red) 100%);
+            border: 3px solid var(--yellow);
+            border-radius: 30px;
+            padding: 12px 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(255,133,27,0.3);
+        }
+
+        .load-more-btn:hover { transform: translateY(-3px) scale(1.05); }
+        .load-more-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+        /* ── MODAL ── */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,10,30,0.88);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(6px);
+        }
+
+        .modal-overlay.active { display: flex; }
+
+        .modal {
+            background: white;
+            border-radius: 24px;
+            border: 4px solid var(--yellow);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            max-width: 520px;
+            width: 100%;
+            overflow: hidden;
+            animation: popIn 0.35s cubic-bezier(0.68,-0.55,0.265,1.55);
         }
 
         @keyframes popIn {
-            0% { transform: scale(0.8); opacity: 0; }
+            0%   { transform: scale(0.8); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
         }
 
-        /* Guaranteed */
-        .result-box.guaranteed {
-            background: linear-gradient(135deg, #e8fdf0, #d4f8e4);
-            border: 3px solid var(--green);
-        }
-        .result-box.guaranteed .result-title { color: #1a7a3c; }
-        .result-box.guaranteed .result-message { color: #1a5c2e; }
+        .modal img { width: 100%; display: block; max-height: 400px; object-fit: contain; background: #f5f5f5; }
 
-        /* FCFS */
-        .result-box.fcfs {
-            background: linear-gradient(135deg, #fff8e1, #fff0b3);
-            border: 3px solid var(--orange);
-        }
-        .result-box.fcfs .result-title { color: #b85c00; }
-        .result-box.fcfs .result-message { color: #7a4000; }
+        .modal-body { padding: 20px 24px 24px; }
 
-        /* Role badge */
-        .role-badge {
-            display: inline-block;
-            margin-top: 12px;
-            padding: 5px 18px;
-            border-radius: 20px;
+        .modal-name {
             font-family: 'Fredoka One', cursive;
-            font-size: 0.95rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        .guaranteed .role-badge {
-            background: var(--green);
-            color: white;
-        }
-        .fcfs .role-badge {
-            background: var(--orange);
-            color: white;
-        }
-
-        /* Ineligible */
-        .result-box.ineligible {
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            border: 3px solid #444;
-        }
-        .result-box.ineligible .result-title { color: var(--yellow); }
-        .result-box.ineligible .result-message { color: #ccc; }
-
-        /* Error */
-        .result-box.error {
-            background: linear-gradient(135deg, #fff3cd, #ffe69c);
-            border: 3px solid var(--orange);
-        }
-        .result-box.error .result-title { color: var(--orange); }
-        .result-box.error .result-message { color: #7a5200; }
-
-        .result-icon {
-            font-size: 3rem;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .result-title {
-            font-family: 'Fredoka One', cursive;
-            font-size: 1.6rem;
-            margin-bottom: 8px;
-        }
-
-        .result-message {
-            font-size: 1.05rem;
-            font-weight: 600;
-            line-height: 1.6;
-        }
-
-        /* Checking state */
-        .checking-spinner {
-            display: none;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .checking-spinner.active {
-            display: block;
-        }
-
-        .spinner {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(0, 31, 63, 0.1);
-            border-top-color: var(--orange);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin-bottom: 10px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .checking-text {
-            font-family: 'Fredoka One', cursive;
+            font-size: 1.8rem;
             color: var(--navy);
-            font-size: 1rem;
             letter-spacing: 2px;
+            margin-bottom: 14px;
         }
 
-        /* X / Twitter Button */
+        .traits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .trait-pill {
+            background: linear-gradient(135deg, rgba(127,219,255,0.2), rgba(57,204,204,0.2));
+            border: 2px solid var(--cyan);
+            border-radius: 12px;
+            padding: 7px 12px;
+        }
+
+        .trait-type { font-size: 0.7rem; color: var(--dark-cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .trait-value { font-size: 0.9rem; color: var(--navy); font-weight: 700; }
+
+        .modal-close {
+            width: 100%;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            color: white;
+            background: linear-gradient(135deg, var(--orange), var(--red));
+            border: 3px solid var(--yellow);
+            border-radius: 20px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover { transform: scale(1.03); }
+
+        /* ── EMPTY STATE ── */
+        .empty-state { text-align: center; padding: 60px 20px; color: white; }
+        .empty-state .emoji { font-size: 4rem; margin-bottom: 16px; }
+        .empty-state p { font-family: 'Fredoka One', cursive; font-size: 1.4rem; letter-spacing: 2px; }
+
+        /* ── X BUTTON ── */
         .x-button {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 55px;
-            height: 55px;
+            bottom: 30px; right: 30px;
+            width: 55px; height: 55px;
             background: #000;
             border-radius: 50%;
             display: flex;
@@ -527,41 +549,33 @@
             justify-content: center;
             cursor: pointer;
             z-index: 999;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.35);
             transition: all 0.3s ease;
             text-decoration: none;
             border: 3px solid var(--yellow);
         }
 
-        .x-button:hover {
-            transform: scale(1.15);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 20px rgba(255, 220, 0, 0.4);
-        }
+        .x-button:hover { transform: scale(1.15); box-shadow: 0 10px 30px rgba(0,0,0,0.45), 0 0 20px rgba(255,220,0,0.4); }
+        .x-button svg { width: 24px; height: 24px; fill: white; }
 
-        .x-button svg {
-            width: 24px;
-            height: 24px;
-            fill: white;
-        }
-
-        /* Responsive */
+        /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
             .logo { font-size: 2.5rem; }
-            .enter-button { 
-                font-size: 1.8rem; 
-                padding: 15px 50px;
-                letter-spacing: 4px;
-            }
+            .enter-button { font-size: 1.8rem; padding: 15px 50px; letter-spacing: 4px; }
             .character-image { width: 200px; height: 200px; }
-            .section { padding: 25px; }
-            .section-title { font-size: 1.5rem; }
+            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+            .legendary-card { width: 180px; }
             .loading-text { font-size: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
 
-    <!-- X / Twitter Button -->
+    <!-- X Button -->
     <a href="https://twitter.com/fowlplay_eth" target="_blank" class="x-button" title="Follow us on X">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
@@ -584,142 +598,215 @@
         </div>
     </div>
 
-    <!-- Main Content -->
+    <!-- Main Content — Gallery -->
     <div id="main-content">
-        <div class="container">
-            <div class="header">
-                <h1 class="logo">FOWLPLAY</h1>
-                <p class="tagline">Join the Flock! 🐔</p>
+
+        <!-- Gallery Header -->
+        <div class="gallery-header">
+            <h1 class="logo">FOWLPLAY</h1>
+            <p class="tagline">The Gallery 🐔</p>
+            <p class="collection-stats" id="stats-text">1,500 pieces</p>
+        </div>
+
+        <!-- Mint Button -->
+        <div class="mint-banner">
+            <a href="https://opensea.io/collection/fowlplay1/overview" target="_blank" class="mint-btn">🐔 JOIN THE FLOCK</a>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <input class="search-box" id="search-input" type="text" placeholder="🔍  Search by ID or name..." oninput="applyFilters()">
+            <select class="filter-select" id="sort-select" onchange="applyFilters()">
+                <option value="id-asc">ID: Low → High</option>
+                <option value="id-desc">ID: High → Low</option>
+            </select>
+            <span class="results-count" id="results-count"></span>
+        </div>
+
+        <!-- Legendaries Section -->
+        <div class="legendaries-section" id="legendaries-section">
+            <div class="section-label">✨ LEGENDARIES ✨</div>
+            <div class="legendaries-grid" id="legendaries-grid"></div>
+        </div>
+
+        <!-- Main Gallery -->
+        <div class="gallery-section">
+            <div class="section-label">THE FLOCK</div>
+            <div class="gallery-grid" id="gallery-grid"></div>
+            <div class="empty-state" id="empty-state" style="display:none;">
+                <div class="emoji">🐦‍⬛</div>
+                <p>No birds found. Try a different search.</p>
             </div>
-
-            <!-- Wallet Checker Section -->
-            <div class="section">
-                <h2 class="section-title">
-                    <span class="section-icon">🔍</span>
-                    Check Wallet Eligibility
-                </h2>
-                <p class="section-subtitle">Enter your Ethereum wallet address to see if you're on the whitelist.</p>
-
-                <div class="input-group">
-                    <label class="label">Wallet Address</label>
-                    <input type="text" id="wallet-input" class="input" placeholder="0x..." autocomplete="off" spellcheck="false">
-                </div>
-
-                <button class="button" id="check-btn" onclick="checkWallet()">Check Eligibility</button>
-
-                <!-- Spinner -->
-                <div class="checking-spinner" id="spinner">
-                    <div class="spinner"></div>
-                    <p class="checking-text">CHECKING THE FLOCK...</p>
-                </div>
-
-                <!-- Result -->
-                <div class="result-box" id="result-box">
-                    <span class="result-icon" id="result-icon"></span>
-                    <p class="result-title" id="result-title"></p>
-                    <p class="result-message" id="result-message"></p>
-                    <span class="role-badge" id="role-badge" style="display:none;"></span>
-                </div>
+            <div class="load-more-wrap">
+                <button class="load-more-btn" id="load-more-btn" onclick="loadMore()">LOAD MORE 🐔</button>
             </div>
+        </div>
 
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+        <div class="modal">
+            <img id="modal-img" src="" alt="">
+            <div class="modal-body">
+                <div class="modal-name" id="modal-name"></div>
+                <div class="traits-grid" id="modal-traits"></div>
+                <button class="modal-close" onclick="closeModal()">CLOSE ✕</button>
+            </div>
         </div>
     </div>
 
     <script>
-        // ===========================================
-        // CONFIGURATION — EDIT THIS
-        // ===========================================
-        const CONFIG = {
-            // Paste your deployed Google Apps Script Web App URL here
-            APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbzb82diarkf72bFaaaLhiidYyIf1LS2f_QvWiIOfQZvZEcPZ-QcTgLLKBuyPgepfS6M5A/exec'
-        };
-        // ===========================================
+        // ── CONFIG ───────────────────────────────────────────
+        const IPFS_BASE = "https://bafybeigpizlt3ltnjvshabclihqeeofcj4k6isizcefzfybxn3swd3f3om.ipfs.w3s.link/";
+        const TOTAL     = 1500;
+        const PAGE_SIZE = 60;
+        const MINT_URL  = "https://opensea.io/collection/fowlplay1/overview";
 
+        // Update after minting — add your 7 legendary token IDs here
+        const LEGENDARY_IDS = []; // e.g. [1, 2, 3, 4, 5, 6, 7]
+
+        // ── ENTER FLOW ───────────────────────────────────────
         function enterSite() {
             document.getElementById('landing-page').style.display = 'none';
             document.getElementById('loading-screen').classList.add('active');
-            
             setTimeout(() => {
                 document.getElementById('loading-screen').classList.remove('active');
                 document.getElementById('main-content').classList.add('active');
             }, 2000);
         }
 
-        async function checkWallet() {
-            const walletInput = document.getElementById('wallet-input').value.trim();
-            const btn = document.getElementById('check-btn');
-            const spinner = document.getElementById('spinner');
-            const resultBox = document.getElementById('result-box');
+        // ── DATA ─────────────────────────────────────────────
+        function isLegendary(id) { return LEGENDARY_IDS.includes(id); }
 
-            // Basic validation
-            if (!walletInput) {
-                showResult('error', '⚠️', 'Hold Up', 'Please enter a wallet address first.');
-                return;
-            }
+        let allCards = [];
+        let filtered = [];
+        let page     = 1;
 
-            if (!walletInput.match(/^0x[a-fA-F0-9]{40}$/)) {
-                showResult('error', '⚠️', 'Invalid Address', 'That doesn\'t look like a valid Ethereum address. Double-check and try again.');
-                return;
-            }
-
-            // Show loading state
-            btn.disabled = true;
-            resultBox.style.display = 'none';
-            spinner.classList.add('active');
-
-            try {
-                const response = await fetch(`${CONFIG.APPS_SCRIPT_URL}?wallet=${encodeURIComponent(walletInput.toLowerCase())}`, {
-                    method: 'GET',
+        function buildCollection() {
+            allCards = [];
+            for (let i = 1; i <= TOTAL; i++) {
+                allCards.push({
+                    id:        i,
+                    name:      `Fowlplay #${i}`,
+                    image:     `${IPFS_BASE}${i}.png`,
+                    legendary: isLegendary(i),
                 });
-
-                const data = await response.json();
-
-                spinner.classList.remove('active');
-
-                if (data.eligible === true && data.role === 'guaranteed') {
-                        showResult('guaranteed', '✅', 'You\'re In', 'The flock recognizes you. Your wallet has been cleared. You\'re in.', 'Guaranteed');
-                    } else if (data.eligible === true && data.role === 'fcfs') {
-                        showResult('fcfs', '🎟️', 'You\'re In', 'The flock recognizes you. Your wallet has been cleared. You\'re in.', 'First Come First Served');
-                    } else {
-                        showResult('ineligible', '🐦‍⬛', 'Not Listed', 'This wallet walks alone. You\'re not on the list yet. The game isn\'t over.', null);
-                    }
-
-            } catch (err) {
-                spinner.classList.remove('active');
-                showResult('error', '⚠️', 'Something Went Wrong', 'Could not reach the server. Check your connection and try again.');
             }
-
-            btn.disabled = false;
         }
 
-        function showResult(type, icon, title, message, badge) {
-            const resultBox = document.getElementById('result-box');
-            const resultIcon = document.getElementById('result-icon');
-            const resultTitle = document.getElementById('result-title');
-            const resultMessage = document.getElementById('result-message');
-            const roleBadge = document.getElementById('role-badge');
+        // ── RENDER ───────────────────────────────────────────
+        function renderLegendaries() {
+            const legendaries = allCards.filter(c => c.legendary);
+            const grid        = document.getElementById("legendaries-grid");
+            const section     = document.getElementById("legendaries-section");
 
-            resultBox.className = `result-box ${type}`;
-            resultIcon.textContent = icon;
-            resultTitle.textContent = title;
-            resultMessage.textContent = message;
+            if (legendaries.length === 0) { section.style.display = "none"; return; }
 
-            if (badge) {
-                roleBadge.textContent = badge;
-                roleBadge.style.display = 'inline-block';
-            } else {
-                roleBadge.style.display = 'none';
-            }
-
-            resultBox.style.display = 'block';
+            grid.innerHTML = legendaries.map(card => `
+                <div class="legendary-card" onclick="openModal(${card.id})">
+                    <img src="${card.image}" alt="${card.name}" loading="lazy"
+                         onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1 1%22><rect fill=%22%23eee%22/></svg>'">
+                    <div class="card-info">
+                        <div class="card-name">${card.name}</div>
+                    </div>
+                </div>
+            `).join("");
         }
 
-        // Allow Enter key to trigger check
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('wallet-input').addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') checkWallet();
-            });
-        });
+        function renderPage() {
+            const grid  = document.getElementById("gallery-grid");
+            const empty = document.getElementById("empty-state");
+            const btn   = document.getElementById("load-more-btn");
+            const shown = filtered.slice(0, page * PAGE_SIZE);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = "";
+                empty.style.display = "block";
+                btn.style.display   = "none";
+                return;
+            }
+
+            empty.style.display = "none";
+            btn.style.display   = shown.length < filtered.length ? "inline-block" : "none";
+
+            grid.innerHTML = shown.map(card => `
+                <div class="nft-card" onclick="openModal(${card.id})">
+                    <img src="${card.image}" alt="${card.name}" loading="lazy"
+                         onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1 1%22><rect fill=%22%23eee%22/></svg>'">
+                    <div class="card-info">
+                        <div class="card-name">${card.name}</div>
+                        <div class="card-id">#${card.id}</div>
+                    </div>
+                </div>
+            `).join("");
+
+            document.getElementById("results-count").textContent =
+                `Showing ${shown.length} of ${filtered.length}`;
+        }
+
+        function loadMore() { page++; renderPage(); }
+
+        // ── FILTERS ──────────────────────────────────────────
+        function applyFilters() {
+            const search = document.getElementById("search-input").value.toLowerCase().trim();
+            const sort   = document.getElementById("sort-select").value;
+
+            filtered = allCards.filter(c => !c.legendary);
+
+            if (search) {
+                filtered = filtered.filter(c =>
+                    c.name.toLowerCase().includes(search) ||
+                    String(c.id).includes(search)
+                );
+            }
+
+            if (sort === "id-desc") filtered.sort((a, b) => b.id - a.id);
+            else                    filtered.sort((a, b) => a.id - b.id);
+
+            page = 1;
+            renderPage();
+        }
+
+        // ── MODAL ────────────────────────────────────────────
+        async function openModal(id) {
+            const card = allCards.find(c => c.id === id);
+            if (!card) return;
+
+            document.getElementById("modal-img").src = card.image;
+            document.getElementById("modal-name").textContent = card.name;
+            document.getElementById("modal-traits").innerHTML =
+                `<div class="trait-pill"><div class="trait-type">Token ID</div><div class="trait-value">#${card.id}</div></div>`;
+            document.getElementById("modal-overlay").classList.add("active");
+
+            // Load traits from metadata when available
+            try {
+                const res  = await fetch(`${IPFS_BASE}${id}.json`);
+                const meta = await res.json();
+                if (meta.attributes && meta.attributes.length > 0) {
+                    document.getElementById("modal-traits").innerHTML =
+                        meta.attributes.map(a => `
+                            <div class="trait-pill">
+                                <div class="trait-type">${a.trait_type}</div>
+                                <div class="trait-value">${a.value}</div>
+                            </div>
+                        `).join("");
+                }
+            } catch (_) { /* metadata not uploaded yet */ }
+        }
+
+        function closeModal(e) {
+            if (!e || e.target === document.getElementById("modal-overlay") || !e.target) {
+                document.getElementById("modal-overlay").classList.remove("active");
+            }
+        }
+
+        document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+        // ── INIT ─────────────────────────────────────────────
+        buildCollection();
+        renderLegendaries();
+        applyFilters();
     </script>
 
 </body>
